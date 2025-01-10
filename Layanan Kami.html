@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klug Indonesia</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        nav {
+    background: linear-gradient(90deg, rgba(70, 7, 78, 0.8) 0%, rgba(25, 123, 208, 0.8) 100%), url('IMAGE/gambar1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Menjaga gambar latar tetap pada tempatnya saat scroll */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Tambahan untuk efek underline */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #FFFFFF;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    font-weight: 500;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    border: 1px solid #FFFFFF;
+    border-radius: 0.5rem;
+    outline: none;
+    width: 200px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.register-btn {
+    background: #1B5EB8;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+        .hero-section {
+    margin-top: 64px;
+    height: 600px;
+    background-image: 
+        linear-gradient(to right, rgba(27, 94, 184, 0.85), rgba(0, 0, 1, 0) 70%), 
+        url('IMAGE/gambar1.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 80px;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+}
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+            background: linear-gradient(to top, rgba(78, 32, 139, 0.9), transparent);
+            font-weight: 600;
+        }
+
+        .divider {
+    width: 80%; /* Panjang garis, bisa disesuaikan */
+    height: 2px; /* Ketebalan garis */
+    background-color: #ddd; /* Warna garis */
+    margin: 40px auto; /* Jarak antara garis dengan bagian atas dan bawah */
+}
+
+        .contact {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.contact h2 {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contact h3 {
+  color: black;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.contact-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.location-btn {
+   background: linear-gradient(90deg, #46074E 0%, #197BD0 100%);
+   color: white;
+   padding: 10px 30px;
+   border: none;
+   border-radius: 25px;
+}
+
+.message-btn {
+  background: white;
+  color: #2B579A;
+  padding: 10px 30px;
+  border: 2px solid #2B579A;
+  border-radius: 25px;
+}
+
+footer {
+    background: linear-gradient(90deg, rgba(70, 7, 78, 0.7) 0%, rgba(25, 123, 208, 0.7) 100%);
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section {
+                height: 400px;
+                padding-bottom: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .footer-container {
+                padding: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="#" class="logo">
+                    <img src="IMAGE/inaklug_header.jpeg" alt="Inaklug Logo">
+                </a>
+                <div class="nav-links">
+                    <a href="Home.html">Home</a>
+                    <a href="Tentang Kami.html">Tentang Kami</a>
+                    <a href="Layanan Kami.html">Layanan Kami</a>
+                    <a href="#">Artikel</a>
+                    <a href="Hubungi Kami.html">Hubungi Kami</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="search-container">
+                    <input type="text" placeholder="Ketik pencarian" class="search-input">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <button class="register-btn">DAFTAR ON-LINE</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>LAYANAN KAMI</h1>
+        </div>
+    </div>
+
+    <div class="services">
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="IMAGE/bachelor.png" alt="Studi S1">
+                <h3>Studi S1 - Bachelor</h3>
+            </div>
+            <div class="service-card">
+                <img src="IMAGE/master.png" alt="Studi S2">
+                <h3>Studi S2 - Master</h3>
+            </div>
+            <div class="service-card">
+                <img src="IMAGE/kursus.png" alt="Kursus Bahasa">
+                <h3>Kursus Bahasa Asing</h3>
+            </div>
+            <div class="service-card">
+                <img src="IMAGE/phd.jpg" alt="Studi S3">
+                <h3>Studi S3 - Ph.D</h3>
+            </div>
+            <div class="service-card">
+                <img src="IMAGE/studytour.png" alt="Study Tour">
+                <h3>Study Tour</h3>
+            </div>
+            <div class="service-card">
+                <img src="IMAGE/ausbildung.jpg" alt="Ausbildung">
+                <h3>Ausbildung</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+  
+    <div class="contact">
+        <h2>HUBUNGI KAMI</h2>
+        <h3>KANTOR PUSAT</h3>
+        <p>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat</p>
+        <p>Phone: (+62 21) 398 38706 - Fax: (+62 21) 316 1701</p>
+        <p>Hotline: +6281519040071 / +6281199816167</p>
+        <div class="contact-buttons">
+            <button class="location-btn">LOKASI KAMI</button>
+            <button class="message-btn">KIRIM PESAN</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            Copyright © 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klug Indonesia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+      /* Navigation styles */
+nav {
+    background: linear-gradient(90deg, rgba(70, 7, 78, 0.7) 0%, rgba(25, 123, 208, 0.7) 100%), url('TB 2/IMAGE/picgedung.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+/* Underline effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFFFFF;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+/* Active state and hover effect */
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+.nav-links a.active {
+    font-weight: 500;
+}
+
+/* Right side navigation elements */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    border: 1px solid #FFFFFF;
+    border-radius: 0.5rem;
+    outline: none;
+    width: 200px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.register-btn {
+    background: #195395;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+/* Hero Section */
+.hero {
+            height: 600px; /* Tinggi hero section */
+            background-image: url('IMAGE/picgedung.png'); /* Gambar latar belakang */
+            background-size: cover; /* Menyesuaikan ukuran gambar */
+            background-position: center; /* Memposisikan gambar di tengah */
+            position: relative; /* Untuk pseudo-elemen */
+            display: flex; /* Mengatur tata letak konten dalam hero */
+            align-items: center; /* Memusatkan konten secara vertikal */
+            padding-left: 100px; /* Ruang di kiri untuk teks */
+            margin-bottom: 80px; /* Memberikan jarak bawah dengan elemen berikutnya */
+        }
+
+        .hero::before {
+            content: ''; /* Pseudo-elemen untuk efek gradasi */
+            position: absolute; /* Melapisi seluruh hero */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, 
+                rgba(70, 7, 78, 0.85) 0%, 
+                rgba(25, 123, 208, 0) 100%); /* Gradasi warna */
+        }
+
+        .hero-content {
+            position: relative; /* Di atas pseudo-elemen */
+            z-index: 2; /* Pastikan konten berada di atas gradasi */
+            max-width: 600px; /* Batas lebar konten */
+        }
+
+        .hero-text {
+            color: white; /* Warna teks */
+            font-size: 40px; /* Ukuran teks */
+            font-weight: 700; /* Ketebalan teks */
+            margin: 0; /* Menghapus margin default */
+            line-height: 1.2; /* Jarak antar garis teks */
+        }
+
+        .selengkapnya-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .selengkapnya-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .arrow-icon {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .arrow-icon::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            position: absolute;
+            top: 4px;
+            right: 6px;
+            transform: rotate(45deg);
+        }
+
+        /* About Section */
+        .section {
+    padding: 60px 40px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Styling untuk garis pemisah */
+.divider {
+    width: 80%; /* Panjang garis, bisa disesuaikan */
+    height: 2px; /* Ketebalan garis */
+    background-color: #ddd; /* Warna garis */
+    margin: 40px auto; /* Jarak antara garis dengan bagian atas dan bawah */
+}
+
+        /* Services Grid */
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+            background: linear-gradient(to top, rgba(78, 32, 139, 0.9), transparent);
+            font-weight: 600;
+        }
+        /* Partners Section */
+        .section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.partners {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.partner-logo {
+    height: 120px; /* Perbesar ukuran gambar */
+    padding: 20px; /* Sesuaikan padding agar proporsional */
+    border: 2px solid #e5e5e5; /* Perbesar border */
+    border-radius: 12px; /* Sesuaikan radius agar tetap estetis */
+    object-fit: contain;
+    background: white;
+    transition: transform 0.3s ease;
+}
+
+.partner-logo:hover {
+    transform: scale(1.1); /* Perbesar efek zoom saat hover */
+}
+
+@media (max-width: 768px) {
+    .partner-logo {
+        height: 100px; /* Perbesar ukuran gambar untuk layar kecil */
+        padding: 15px; /* Sesuaikan padding */
+        border: 1.5px solid #e5e5e5; /* Border tetap proporsional */
+        border-radius: 10px; /* Radius untuk perangkat kecil */
+    }
+}
+.consultation-banner {
+    background: linear-gradient(90deg, #46074E 0%, #197BD0 100%);
+    padding: 20px 0;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.banner-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 0 40px;
+}
+
+.banner-text {
+    color: white;
+}
+
+.banner-text h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.banner-subtitle {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.consultation-btn {
+    white-space: nowrap;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .consultation-banner {
+        width: 95%;
+        padding: 15px 0;
+    }
+
+    .banner-flex-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    .banner-text h2 {
+        font-size: 20px;
+    }
+    
+    .banner-subtitle {
+        font-size: 13px;
+    }
+}
+
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .article-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .article-title {
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        .artikel-lainnya {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid #4E208B;
+    border-radius: 25px;
+    color: #4E208B;
+    background: white;
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.artikel-lainnya:hover {
+    background: #4E208B;
+    color: white;
+}
+
+        .contact {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.contact h2 {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contact h3 {
+  color: black;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.contact-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.location-btn {
+  background: #4E208B;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 25px;
+}
+
+.message-btn {
+  background: white;
+  color: #2B579A;
+  padding: 10px 30px;
+  border: 2px solid #2B579A;
+  border-radius: 25px;
+}
+
+footer {
+    background: linear-gradient(90deg, rgba(70, 7, 78, 0.7) 0%, rgba(25, 123, 208, 0.7) 100%);
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section {
+                height: 400px;
+                padding-bottom: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .footer-container {
+                padding: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+          <div class="logo-container">
+              <a href="#" class="logo">
+                  <img src="IMAGE/inaklug_header.jpeg" alt="Inaklug Logo">
+              </a>
+              <div class="nav-links">
+                <a href="Home.html" class="active">Home</a>
+                <a href="Tentang Kami.html">Tentang Kami</a>
+                <a href="Layanan Kami.html">Layanan Kami</a>
+                <a href="#">Artikel</a>
+                <a href="Hubungi Kami.html">Hubungi Kami</a>
+            </div>
+          </div>
+          <div class="nav-right">
+              <div class="search-container">
+                  <input type="text" placeholder="Ketik pencarian" class="search-input">
+                  <span class="search-icon">🔍</span>
+              </div>
+              <button class="register-btn">DAFTAR ON-LINE</button>
+          </div>
+      </div>
+  </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+          <p class="hero-text">INGIN KULIAH</p>
+          <p class="hero-text">DAN BERKARIR</p>
+          <p class="hero-text">DI LUAR NEGERI?</p>
+          <button class="selengkapnya-btn">
+              SELENGKAPNYA
+              <span class="arrow-icon"></span>
+          </button>
+      </div>
+    
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+      <h2 class="section-title">TENTANG KAMI</h2>
+      <p class="section-content">
+          INAKLUG adalah Konsultan Pendidikan Internasional di Indonesia yang sudah memberangkatkan lebih dari 3000 mahasiswa Indonesia yang ingin kuliah, perjalanan wisata, dan berkarir di negara maju di dunia.
+      </p>
+  </section>
+  
+  <div class="divider"></div>
+  
+    <!-- Services Section -->
+    <section class="section" id="layanan-kami">
+        <h2 class="section-title">Layanan Kami</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="IMAGE/bachelor.png" alt="Studi S1">
+                <div class="service-overlay"></div>
+                <h3>Studi S1 - Bachelor</h3>
+            </div>
+            <div class="service-card">
+                <img src="IMAGE/master.png" alt="Studi S2">
+                <div class="service-overlay"></div>
+                <h3>Studi S2 - Master</h3>
+            </div>
+            <div class="service-card">
+                <img src="IMAGE/phd.jpg" alt="Studi S3">
+                <div class="service-overlay"></div>
+                <h3>Studi S3 - Ph.D</h3>
+            </div>
+            <div class="service-card">
+                <img src="IMAGE/kursus.png" alt="Kursus Bahasa">
+                <div class="service-overlay"></div>
+                <h3>Kursus Bahasa Asing</h3>
+            </div>
+            <div class="service-card">
+                <img src="IMAGE/studytour.png" alt="Study Tour">
+                <div class="service-overlay"></div>
+                <h3>Study Tour</h3>
+            </div>
+            <div class="service-card">
+                <img src="IMAGE/ausbildung.jpg" alt="Ausbildung">
+                <div class="service-overlay"></div>
+                <h3>Ausbildung</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="section">
+      <h2 class="section-title">MITRA KAMI</h2>
+      <div class="partners">
+          <img src="IMAGE/mitra1.webp" alt="424 Aviation" class="partner-logo">
+          <img src="IMAGE/mitra2.jpg" alt="St. Andrew's College" class="partner-logo">
+          <img src="IMAGE/mitra3.png" alt="HTW Berlin" class="partner-logo">
+          <img src="IMAGE/mitra4.png" alt="Study Group" class="partner-logo">
+      </div>
+    </section>
+
+   <!-- Free Consultation Banner -->
+<section class="section consultation-banner">
+    <div class="banner-flex-container">
+        <div class="banner-text">
+            <h2>GRATIS KONSELING STUDI DI LUAR NEGERI !!!</h2>
+            <p class="banner-subtitle">Konsultasi seputar kuliah / bekerja di Luar Negeri</p>
+        </div>
+        <button class="selengkapnya-btn consultation-btn">
+            MULAI KONSULTASI
+            <span class="arrow-icon"></span>
+        </button>
+    </div>
+</section>
+    <!-- Articles Section -->
+    <section class="section" id="artikel">
+        <h2 class="section-title">Artikel Terbaru</h2>
+        <div class="articles-grid">
+            <!-- Replace src with actual article images -->
+            <div class="article-card">
+                <img src="IMAGE/artikel1.jpg" alt="Article 1">
+                <h3 class="article-title">5 Fakta yang Harus Kamu Ketahui! Sebelum Studi ke Jerman</h3>
+            </div>
+            <div class="article-card">
+                <img src="IMAGE/artikel2.jpg" alt="Article 2">
+                <h3 class="article-title">Uni Eropa Menghadapi Virus Korona</h3>
+            </div>
+            <div class="article-card">
+                <img src="IMAGE/artikel3.jpg" alt="Article 3">
+                <h3 class="article-title">Belajar Bahasa Jerman Bersama Goethe Institut</h3>
+            </div>
+            <div class="article-card">
+                <img src="IMAGE/artikel4.jpg" alt="Article 4">
+                <h3 class="article-title">Apa Itu Gates Cambridge? Yuk Cari Tahu!</h3>
+            </div>
+        </div>
+        <a href="#" class="artikel-lainnya">ARTIKEL LAINNYA</a>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Contact Section -->
+    <div class="contact">
+      <h2>HUBUNGI KAMI</h2>
+      <h3>KANTOR PUSAT</h3>
+      <p>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat</p>
+      <p>Phone: (+62 21) 398 38706 - Fax: (+62 21) 316 1701</p>
+      <p>Hotline: +6281519040071 / +6281199816167</p>
+      <div class="contact-buttons">
+          <button class="location-btn">LOKASI KAMI</button>
+          <button class="message-btn">KIRIM PESAN</button>
+      </div>
+  </div>
+
+  <footer>
+      <div class="footer-container">
+          Copyright © 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang
+      </div>
+  </footer>
+</body>
+</html>
